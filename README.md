@@ -10,7 +10,29 @@ The file predict_digits.py uses load_training_data.py and nn.py to categorize ha
 
 Using a neural network with 5 hidden layers, each with 225 hidden units resulted in a test accuracy of 95%.
 
-## Initialization
+## Hyperparameter Search
+
+I performed a random search over the following hyperparameters:
+
+- Learning rate, $\alpha$
+- Mini-batch size
+- Size of each hidden layer
+- Number of hidden layers
+- Regularization hyperparameter, $\lambda$
+
+Based on the random search, I settled on the following hyperparameter values:
+
+| Hyperparameter | Value |
+| -------------- | ----- |
+| Learning Rate, $\alpha$| 0.0715 |
+| Mini-Batch Size | 256 |
+| Hidden Layer Size | 225 |
+| Number of Hidden Layers | 5 |
+| Regularization Hyperparameter, $\lambda$ | 1.263 |
+
+## Using the `NNModel` Class to Build a Neural Network
+
+### Initialization
 ```
 network = NNModel([100, 5, 10], relu, relu_grad, lambd=0)
 ```
@@ -24,7 +46,7 @@ The fourth argument is the regularization hyperparameter, `lambd`.  A bigger val
 
 The network automatically initializes the weights randomly using He initialization.
 
-## Training
+### Training
 After creating a `NNModel` object, you can train using the `train` method for batch gradient descent:
 
 ```
@@ -54,7 +76,7 @@ Again, `X` and `Y` are the design and label matrices respectively.
 
 `show_cost_every_num_iter=50` causes the model to print out the cost every 50 iterations.
 
-## Predicting
+### Predicting
 To predict the labels given some design matrix, use the `predict` method:
 
 ```
