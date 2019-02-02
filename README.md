@@ -1,6 +1,14 @@
-# MNIST_NN_1
+# Using Neural Networks for Recognizing Handwritten Digits
+
+This repository includes files for recognizing handwritten digits, which come from the MNIST dataset.  The file load_training_data.py reads in the data, which is stored in a csv file.  The script also preprocesses the data.
 
 The file nn.py implements a neural network using Python and numpy.  The class `NNModel` creates a neural network object that has a softmax activation for the output layer.  Included in nn.py is a function for ReLU and a function for the ReLU gradient (`relu` and `relu_grad`).  These two functions can be passed to the `NNModel` constructor.
+
+The file predict_digits.py uses load_training_data.py and nn.py to categorize handwritten digits.  This file includes the hyperparameter search.
+
+## Results
+
+Using a neural network with 5 hidden layers, each with 225 hidden units resulted in a test accuracy of 95%.
 
 ## Initialization
 ```
